@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge"
 const plans = [
   {
     name: "Starter pack",
-    price: "$39",
+    price: "₹39",
     period: "one-time",
     features: [
       "15-day supply",
@@ -20,7 +20,7 @@ const plans = [
   },
   {
     name: "Monthly Shine",
-    price: "$59",
+    price: "₹59",
     period: "month",
     features: [
       "30-day supply (save 25%)",
@@ -33,7 +33,7 @@ const plans = [
   },
   {
     name: "3-Month Radiance",
-    price: "$147",
+    price: "₹147",
     period: "one-time",
     features: [
       "90-day supply (best value)",

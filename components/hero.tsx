@@ -2,57 +2,53 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Leaf, Truck, Shield, Ban } from "lucide-react"
 
-function NutrasipLogo() {
+function NutrasipLogo({ size = 1 }: { size?: number }) {
+  const s = size
   return (
     <div style={{
       display: "flex",
       alignItems: "center",
-      gap: "12px",
+      gap: `${12 * s}px`,
       background: "rgba(255,255,255,0.87)",
       backdropFilter: "blur(2px)",
-      padding: "6px 18px 6px 12px",
+      padding: `${6 * s}px ${28 * s}px ${6 * s}px ${20 * s}px`,
       borderRadius: "80px",
-      boxShadow: "0 2px 8px rgba(0,0,0,0.03)",
+      boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
     }}>
       {/* Glass + straw icon */}
-      <div style={{ position: "relative", width: 48, height: 54 }}>
-        {/* Glass body */}
+      <div style={{ position: "relative", width: 48 * s, height: 54 * s }}>
         <div style={{
-          position: "absolute", bottom: 0, left: 8,
-          width: 32, height: 38,
+          position: "absolute", bottom: 0, left: 8 * s,
+          width: 32 * s, height: 38 * s,
           background: "rgba(168,224,152,0.35)",
-          border: "2px solid #4a7843",
-          borderTop: "1px solid #6f9e66",
+          border: `${2 * s}px solid #4a7843`,
+          borderTop: `${1 * s}px solid #6f9e66`,
           borderRadius: "0 0 16px 16px",
         }} />
-        {/* Straw */}
         <div style={{
-          position: "absolute", top: -6, left: 24,
-          width: 4, height: 26,
+          position: "absolute", top: -6 * s, left: 24 * s,
+          width: 4 * s, height: 26 * s,
           background: "#d4b87a",
           borderRadius: 4,
           transform: "rotate(10deg)",
           zIndex: 2,
         }} />
-        {/* Left leaf */}
         <div style={{
-          position: "absolute", top: -6, left: -12,
-          width: 20, height: 20,
+          position: "absolute", top: -6 * s, left: -12 * s,
+          width: 20 * s, height: 20 * s,
           background: "#3e9e3e",
           borderRadius: "80% 0 80% 0",
           transform: "rotate(-35deg)",
         }} />
-        {/* Right leaf */}
         <div style={{
-          position: "absolute", top: -4, right: -12,
-          width: 20, height: 20,
+          position: "absolute", top: -4 * s, right: -12 * s,
+          width: 20 * s, height: 20 * s,
           background: "#6fbf4c",
           borderRadius: "80% 0 80% 0",
           transform: "rotate(55deg)",
         }} />
       </div>
-      {/* Brand name */}
-      <div style={{ fontSize: "1.9rem", fontWeight: 800, letterSpacing: "-0.5px", color: "#2c5e2b" }}>
+      <div style={{ fontSize: `${1.9 * s}rem`, fontWeight: 800, letterSpacing: "-0.5px", color: "#2c5e2b" }}>
         NUTRA<span style={{ fontWeight: 500, color: "#557c4a" }}>SIP</span>
       </div>
     </div>
@@ -61,7 +57,7 @@ function NutrasipLogo() {
 
 export function Hero() {
   return (
-    <section className="py-12 md:py-20">
+    <section className="py-12 md:py-20 overflow-x-hidden">
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Content */}
@@ -106,9 +102,12 @@ export function Hero() {
           </div>
 
           {/* Logo as hero visual */}
-          <div className="flex-1 flex justify-center items-center">
-            <div style={{ transform: "scale(3)", transformOrigin: "center" }}>
-              <NutrasipLogo />
+          <div className="flex-1 flex justify-center items-center py-8 lg:py-0">
+            <div className="hidden lg:block">
+              <NutrasipLogo size={2.8} />
+            </div>
+            <div className="block lg:hidden">
+              <NutrasipLogo size={1.2} />
             </div>
           </div>
         </div>
