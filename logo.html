@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>NUTRASIP | Sip. Shine. Repeat. - Organic Health Drinks</title>
+  <!-- Google Fonts + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fefaf5;
+      color: #1c2e1a;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      display: inline-block;
+      background: #3a7b3a;
+      color: white;
+      font-weight: 700;
+      padding: 12px 32px;
+      border-radius: 60px;
+      text-decoration: none;
+      transition: 0.25s ease;
+      box-shadow: 0 5px 12px rgba(58, 123, 58, 0.25);
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .btn-primary:hover {
+      background: #2b5e2b;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #3a7b3a;
+      color: #3a7b3a;
+      padding: 10px 28px;
+      border-radius: 60px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover {
+      background: #3a7b3a;
+      color: white;
+    }
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    /* ---------- CUSTOM LOGO: glass + straw + brand name + 2 green leafs ---------- */
+    .logo-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #ffffffdd;
+      backdrop-filter: blur(2px);
+      padding: 6px 18px 6px 12px;
+      border-radius: 80px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+
+    .logo-icon {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* glass + straw drawing */
+    .glass-straw {
+      position: relative;
+      width: 48px;
+      height: 54px;
+    }
+
+    .glass-body {
+      position: absolute;
+      bottom: 0;
+      left: 8px;
+      width: 32px;
+      height: 38px;
+      background: rgba(168, 224, 152, 0.35);
+      border: 2px solid #4a7843;
+      border-top: 1px solid #6f9e66;
+      border-radius: 0 0 16px 16px;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .straw {
+      position: absolute;
+      top: -6px;
+      left: 24px;
+      width: 4px;
+      height: 26px;
+      background: #d4b87a;
+      border-radius: 4px;
+      transform: rotate(10deg);
+      z-index: 2;
+    }
+
+    .leaf-left, .leaf-right {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #4caf50;
+      border-radius: 80% 0 80% 0;
+      transform: rotate(-45deg);
+      top: -6px;
+    }
+
+    .leaf-left {
+      left: -12px;
+      background: #3e9e3e;
+      transform: rotate(-35deg);
+    }
+
+    .leaf-right {
+      right: -12px;
+      background: #6fbf4c;
+      transform: rotate(55deg);
+      top: -4px;
+    }
+
+    .brand-text {
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #2c5e2b;
+    }
+
+    .brand-text span {
+      font-weight: 500;
+      color: #557c4a;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2f442b;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #3a7b3a;
+    }
+
+    /* hero */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      padding: 40px 0 60px;
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .hero-badge {
+      background: #e6f0e2;
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #3a7b3a;
+      margin-bottom: 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: #1a3a17;
+    }
+
+    .hero-tagline {
+      font-size: 1.25rem;
+      color: #4a6742;
+      margin-bottom: 30px;
+      border-left: 4px solid #3a7b3a;
+      padding-left: 18px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      border-radius: 48px;
+      box-shadow: 0 20px 30px -8px rgba(0, 0, 0, 0.1);
+    }
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      font-size: 2.3rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 48px;
+      color: #1c2e1a;
+    }
+
+    .section-sub {
+      text-align: center;
+      max-width: 700px;
+      margin: -20px auto 40px;
+      color: #5a6e51;
+    }
+
+    /* features */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 40px;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 32px 24px;
+      border-radius: 32px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.03);
+      text-align: center;
+      border: 1px solid #eef0e8;
+      transition: 0.2s;
+    }
+
+    .feature-icon {
+      font-size: 2.8rem;
+      color: #3a7b3a;
+      margin-bottom: 20px;
+    }
+
+    /* testimonials */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .testimonial-card {
+      background: white;
+      padding: 28px;
+      border-radius: 28px;
+      border: 1px solid #eaf1e5;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.02);
+    }
+
+    .stars {
+      color: #f5b342;
+      margin-bottom: 16px;
+    }
+
+    /* steps */
+    .steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .step {
+      background: white;
+      flex: 1;
+      min-width: 180px;
+      text-align: center;
+      padding: 28px 20px;
+      border-radius: 32px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.03);
+    }
+
+    .step-number {
+      background: #3a7b3a;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      color: white;
+      font-weight: 800;
+      font-size: 1.5rem;
+      border-radius: 60px;
+    }
+
+    /* pricing */
+    .pricing-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .price-card {
+      background: white;
+      border-radius: 36px;
+      padding: 32px 28px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e0ecda;
+    }
+
+    .price-card.popular {
+      border: 2px solid #3a7b3a;
+      position: relative;
+    }
+
+    .popular-badge {
+      background: #3a7b3a;
+      color: white;
+      padding: 6px 14px;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: bold;
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+
+    .price {
+      font-size: 2.6rem;
+      font-weight: 800;
+      margin: 20px 0;
+    }
+
+    .moneyback {
+      font-size: 0.8rem;
+      margin-top: 16px;
+      color: #3a7b3a;
+      font-weight: 500;
+    }
+
+    /* faq */
+    .faq-grid {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: white;
+      border-radius: 24px;
+      margin-bottom: 16px;
+      padding: 20px 24px;
+      border: 1px solid #eef0ea;
+      cursor: pointer;
+    }
+
+    .faq-question {
+      font-weight: 700;
+      font-size: 1.1rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .faq-answer {
+      margin-top: 12px;
+      color: #5a6e51;
+      display: none;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    /* trust badges */
+    .trust-row {
+      background: #f4f9ef;
+      text-align: center;
+      padding: 24px 20px;
+      border-radius: 48px;
+      margin: 30px 0 10px;
+    }
+
+    .badges-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 28px;
+      font-weight: 500;
+    }
+
+    footer {
+      background: #1e2f1b;
+      color: #d4e2cd;
+      padding: 48px 0 24px;
+      border-radius: 32px 32px 0 0;
+      margin-top: 40px;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .footer-col a {
+      color: #c2d8b3;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin-right: 18px;
+      font-size: 1.4rem;
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid #3e5538;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 780px) {
+      .hero-content h1 { font-size: 2.4rem; }
+      .navbar { flex-direction: column; align-items: center; }
+      .nav-links { flex-wrap: wrap; justify-content: center; gap: 18px; }
+      .section-title { font-size: 1.9rem; }
+      .logo-wrapper { padding: 4px 16px; }
+      .brand-text { font-size: 1.5rem; }
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="navbar">
+    <!-- CUSTOM LOGO: glass + straw + brand name + 2 green leafs -->
+    <div class="logo-wrapper">
+      <div class="logo-icon">
+        <div class="glass-straw">
+          <div class="glass-body"></div>
+          <div class="straw"></div>
+          <div class="leaf-left"></div>
+          <div class="leaf-right"></div>
+        </div>
+      </div>
+      <div class="brand-text">NUTRA<span>SIP</span></div>
+    </div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#features">Benefits</a>
+      <a href="#howitworks">How It Works</a>
+      <a href="#pricing">Plans</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </div>
+</div>
+
+<!-- Hero Section with CTA -->
+<section style="padding-top: 0;">
+  <div class="container">
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-badge"><i class="fas fa-leaf"></i> 100% organic · clean nutrition</div>
+        <h1>Sip. Shine. Repeat.<br>Your daily glow ritual</h1>
+        <div class="hero-tagline">Organic blend for radiant skin, stronger hair & boosted metabolism — in one delicious sip.</div>
+        <div class="hero-buttons">
+          <a href="#pricing" class="btn-primary">🛒 Buy Now — Start 30-Day Trial</a>
+          <a href="#howitworks" class="btn-outline">✨ See How It Works →</a>
+        </div>
+        <div style="margin-top: 24px; display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.85rem;">
+          <span><i class="fas fa-truck-fast" style="color:#3a7b3a;"></i> Free shipping</span>
+          <span><i class="fas fa-undo-alt" style="color:#3a7b3a;"></i> 60-day guarantee</span>
+          <span><i class="fas fa-seedling" style="color:#3a7b3a;"></i> No artificials</span>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://placehold.co/500x450/fefcf5/d9e8d2?text=🥤+NUTRASIP+Glow+Elixir" alt="Nutrasip organic drink bottle with fresh ingredients">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Solution / Features (focus on benefits) -->
+<section id="features">
+  <div class="container">
+    <h2 class="section-title">What problems does NUTRASIP solve?</h2>
+    <p class="section-sub">Stop wasting time on separate products. Get skin clarity, hair strength & metabolic energy in one organic sip.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-gem"></i></div>
+        <h3>Dull, tired skin?</h3>
+        <p>Vitamin C + Amla berry boost collagen & fight oxidative stress — revealing a natural dewy glow without makeup.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-feather-alt"></i></div>
+        <h3>Hair fall & breakage?</h3>
+        <p>Biotin & bamboo silica strengthen strands, reduce shedding, and support shiny, thick hair from within.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-fire"></i></div>
+        <h3>Slow metabolism?</h3>
+        <p>Green tea extract + MCT oil gently energize and increase calorie burn, helping you feel light & active.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-hand-holding-heart"></i></div>
+        <h3>Overwhelmed by supplements?</h3>
+        <p>One drink replaces 3+ products. Effortless, delicious & perfect for your daily self-care ritual.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Social Proof: Testimonials + ratings + trusted logos -->
+<section style="background: #fefaf2;">
+  <div class="container">
+    <h2 class="section-title">Trusted by 15,000+ glowing customers 🌟</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <div class="testimonial-text">“3 weeks in — my skin looks brighter and my ponytail feels thicker. I’m never skipping my NUTRASIP morning!”</div>
+        <div class="customer-name" style="font-weight: 600;">— Priya M., verified buyer</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+        <div class="testimonial-text">“Finally a drink that actually works for metabolism. Lost 4 lbs naturally and my energy is through the roof. Sip shine repeat!”</div>
+        <div class="customer-name" style="font-weight: 600;">— Rohan S. ⭐ 4.9/5</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <div class="testimonial-text">“I've tried many collagen powders, but NUTRASIP is next level. Hair stylist even noticed less breakage. Highly recommend!”</div>
+        <div class="customer-name" style="font-weight: 600;">— Anjali K.</div>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 40px;">
+      <p style="font-weight: 600;">⭐ Rated 4.92/5 (2,800+ reviews) on Google & Trustpilot</p>
+      <div style="display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin-top: 28px;">
+        <span><i class="fas fa-check-circle" style="color:#3a7b3a;"></i> Featured in “Vogue Wellness”</span>
+        <span><i class="fas fa-check-circle" style="color:#3a7b3a;"></i> Certified Organic by Ecocert</span>
+        <span><i class="fas fa-check-circle" style="color:#3a7b3a;"></i> 500+ dermatologists recommend</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works (Simple step-by-step) -->
+<section id="howitworks">
+  <div class="container">
+    <h2 class="section-title">3 steps to your glow transformation</h2>
+    <div class="steps">
+      <div class="step"><div class="step-number">1</div><h3>🥄 Mix it</h3><p>Add 1 scoop of NUTRASIP powder to water, smoothie or oat milk — shake or stir.</p></div>
+      <div class="step"><div class="step-number">2</div><h3>🥤 Sip mindfully</h3><p>Enjoy the refreshing berry-citrus taste every morning or pre-workout.</p></div>
+      <div class="step"><div class="step-number">3</div><h3>✨ Shine & repeat</h3><p>Within 2–4 weeks see visible glow, stronger hair & better metabolism.</p></div>
+    </div>
+    <div style="text-align: center; margin: 48px auto 0; max-width: 540px; background: #ecf5e6; border-radius: 56px; padding: 28px 20px;">
+      <i class="fas fa-play-circle" style="font-size: 48px; color: #3a7b3a;"></i>
+      <p style="margin-top: 12px; font-weight: 500;">📹 Watch 1-min demo: how to prepare your daily NUTRASIP ritual</p>
+      <div style="background: white; width: fit-content; margin: 12px auto 0; padding: 8px 24px; border-radius: 60px;">▶️ Short video preview</div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing with money-back guarantee -->
+<section id="pricing" style="background: #ffffff;">
+  <div class="container">
+    <h2 class="section-title">Pricing for every journey</h2>
+    <div class="pricing-cards">
+      <div class="price-card">
+        <h3>🌟 Trial pack</h3>
+        <div class="price">$39<span>/once</span></div>
+        <ul style="list-style: none; margin: 20px 0; text-align: left;">
+          <li><i class="fas fa-check" style="color:#3a7b3a;"></i> 15-day supply</li>
+          <li><i class="fas fa-check"></i> Organic formula</li>
+          <li><i class="fas fa-check"></i> Digital glow guide</li>
+        </ul>
+        <a href="#" class="btn-primary" style="padding: 10px 24px;">Buy now →</a>
+        <div class="moneyback"><i class="fas fa-shield-alt"></i> 30-day guarantee</div>
+      </div>
+      <div class="price-card popular">
+        <div class="popular-badge">🔥 BEST VALUE</div>
+        <h3>Monthly Shine</h3>
+        <div class="price">$59<span>/month</span></div>
+        <ul style="list-style: none; margin: 20px 0; text-align: left;">
+          <li><i class="fas fa-check"></i> 30-day supply (save 20%)</li>
+          <li><i class="fas fa-check"></i> Free shaker + shipping</li>
+          <li><i class="fas fa-check"></i> Exclusive wellness webinar</li>
+        </ul>
+        <a href="#" class="btn-primary">Subscribe →</a>
+        <div class="moneyback">🎯 Cancel anytime · 60-day money back</div>
+      </div>
+      <div class="price-card">
+        <h3>🌿 3-Month Radiance</h3>
+        <div class="price">$147<span>/once</span></div>
+        <ul style="list-style: none; margin: 20px 0; text-align: left;">
+          <li><i class="fas fa-check"></i> 90-day supply (best deal)</li>
+          <li><i class="fas fa-check"></i> Priority support + gift bottle</li>
+          <li><i class="fas fa-check"></i> 100% risk-free refund</li>
+        </ul>
+        <a href="#" class="btn-primary">Save 30% →</a>
+        <div class="moneyback"><i class="fas fa-lock"></i> Secure checkout</div>
+      </div>
+    </div>
+    <!-- Trust Badges (SSL, payment, guarantee) -->
+    <div class="trust-row">
+      <div class="badges-list">
+        <span><i class="fas fa-lock"></i> 256-bit SSL Secure</span>
+        <span><i class="fab fa-cc-visa"></i> Visa · Mastercard · PayPal</span>
+        <span><i class="fas fa-undo-alt"></i> 60-Day Money Back Guarantee</span>
+        <span><i class="fas fa-check-double"></i> GMP & USDA Organic Certified</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQs -->
+<section id="faq">
+  <div class="container">
+    <h2 class="section-title">Frequently asked questions</h2>
+    <div class="faq-grid" id="faqContainer">
+      <div class="faq-item">
+        <div class="faq-question">What makes NUTRASIP different from other wellness drinks? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer">NUTRASIP combines skin, hair & metabolic support in one organic formula — no need for separate collagen, biotin or greens powder. Plus, it’s delicious and 100% vegan with zero junk.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">How soon will I see results for skin & hair? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer">Most customers notice brighter skin and less fatigue within 2 weeks. For hair growth and metabolism, consistency for 4–8 weeks yields best results. Backed by a 60-day guarantee.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Do you offer subscription discounts or one-time purchase? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer">Yes! Choose one-time purchase or subscribe monthly and save 20%. Subscribers get free shipping & flexible cancellation anytime from your account.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">What if I don’t like the taste or results? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer">No worries — we offer a 60-day money-back guarantee, even if you finish the bottle. Contact support@nutrasip.com for a hassle-free refund.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Is NUTRASIP safe while breastfeeding or on medication? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer">Ingredients are generally safe, but we recommend consulting your healthcare provider before starting any new supplement if you are pregnant, nursing or under medication.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer + social links + legal -->
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-col">
+        <h4>🍃 NUTRASIP</h4>
+        <p>Sip. Shine. Repeat. — organic wellness for your inner & outer glow.</p>
+        <div class="social-links" style="margin-top: 16px;">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+          <a href="#"><i class="fab fa-pinterest"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick links</h4>
+        <a href="#">Shop all</a>
+        <a href="#">Ingredients</a>
+        <a href="#">Refer a friend</a>
+        <a href="#">Affiliate program</a>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="#">Contact us</a>
+        <a href="#">Email: care@nutrasip.com</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>© 2025 NUTRASIP — All rights reserved. These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion toggle functionality
+  const faqs = document.querySelectorAll('.faq-item');
+  faqs.forEach(item => {
+    const q = item.querySelector('.faq-question');
+    q.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      faqs.forEach(i => i.classList.remove('active'));
+      if (!isActive) item.classList.add('active');
+    });
+  });
+  if(faqs.length) faqs[0].classList.add('active');
+</script>
+</body>
+</html>
